@@ -9,16 +9,31 @@ const FeatureCard = ({ icon, title, description, delay = 0 }) => {
   return (
     <div
       ref={ref}
-      className={`backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-8 transition-all duration-700 cursor-pointer ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      } ${isHovered ? "transform scale-105 rotate-1 shadow-2xl" : ""}`}
+      className={`backdrop-blur-lg bg-white/5 border border-red-500/20 rounded-2xl p-8
+      transition-all duration-700 cursor-pointer
+      ${
+        isVisible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-10"
+      }
+      ${
+        isHovered
+          ? "scale-105 rotate-1 shadow-[0_20px_40px_-10px_rgba(220,38,38,0.6)]"
+          : ""
+      }`}
       style={{ transitionDelay: `${delay}ms` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="text-4xl mb-4">{icon}</div>
-      <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
-      <p className="text-gray-300 leading-relaxed">{description}</p>
+      <div className="text-4xl mb-4 text-red-400">{icon}</div>
+
+      <h3 className="text-xl font-bold text-white mb-3">
+        {title}
+      </h3>
+
+      <p className="text-red-100/70 leading-relaxed">
+        {description}
+      </p>
     </div>
   );
 };
@@ -65,13 +80,16 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-20" id="features">
+    <section className="py-20 relative" id="features">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-6">
+          <h2 className="text-5xl font-bold
+            bg-gradient-to-r from-red-500 via-rose-500 to-red-700
+            bg-clip-text text-transparent mb-6">
             Powerful AI Features
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+
+          <p className="text-xl text-red-100/70 max-w-3xl mx-auto">
             Everything you need to create, edit, and enhance images with
             professional-grade tools powered by cutting-edge AI technology.
           </p>

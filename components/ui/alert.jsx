@@ -1,5 +1,5 @@
 import * as React from "react"
-import { cva } from "class-variance-authority";
+import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
@@ -8,9 +8,10 @@ const alertVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-card text-card-foreground",
+        default:
+          "bg-red-900/30 text-red-100 border-red-600/40 [&>svg]:text-red-400",
         destructive:
-          "text-destructive bg-card [&>svg]:text-current *:data-[slot=alert-description]:text-destructive/90",
+          "text-red-50 bg-red-800/40 border-red-700/50 [&>svg]:text-red-500 *:data-[slot=alert-description]:text-red-200/90",
       },
     },
     defaultVariants: {
@@ -19,45 +20,41 @@ const alertVariants = cva(
   }
 )
 
-function Alert({
-  className,
-  variant,
-  ...props
-}) {
+function Alert({ className, variant, ...props }) {
   return (
     <div
       data-slot="alert"
       role="alert"
       className={cn(alertVariants({ variant }), className)}
-      {...props} />
-  );
+      {...props}
+    />
+  )
 }
 
-function AlertTitle({
-  className,
-  ...props
-}) {
+function AlertTitle({ className, ...props }) {
   return (
     <div
       data-slot="alert-title"
-      className={cn("col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight", className)}
-      {...props} />
-  );
+      className={cn(
+        "col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight text-red-100",
+        className
+      )}
+      {...props}
+    />
+  )
 }
 
-function AlertDescription({
-  className,
-  ...props
-}) {
+function AlertDescription({ className, ...props }) {
   return (
     <div
       data-slot="alert-description"
       className={cn(
-        "text-muted-foreground col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed",
+        "col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed text-red-200/80",
         className
       )}
-      {...props} />
-  );
+      {...props}
+    />
+  )
 }
 
 export { Alert, AlertTitle, AlertDescription }

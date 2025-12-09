@@ -10,27 +10,28 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+          "bg-red-600 text-red-100 shadow-xs hover:bg-red-700/90",
         destructive:
-          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "bg-red-800 text-white shadow-xs hover:bg-red-900/90 focus-visible:ring-red-700/20 dark:focus-visible:ring-red-600/40 dark:bg-red-800/60",
         outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+          "border bg-red-900/20 shadow-xs hover:bg-red-600 hover:text-red-50 dark:bg-red-800/30 dark:border-red-700 dark:hover:bg-red-600",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+          "bg-red-500 text-red-50 shadow-xs hover:bg-red-600/80",
         ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        link: "text-primary underline-offset-4 hover:underline",
+          "hover:bg-red-600 hover:text-red-50 dark:hover:bg-red-600/50",
+        link:
+          "text-red-400 underline-offset-4 hover:underline",
 
         primary:
-          "backdrop-blur-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white border-transparent hover:shadow-2xl hover:shadow-blue-500/25 hover:transform hover:scale-105", // custom
+          "backdrop-blur-lg bg-gradient-to-r from-red-600 to-red-800 text-white border-transparent hover:shadow-2xl hover:shadow-red-500/25 hover:transform hover:scale-105",
         glass:
-          "backdrop-blur-lg bg-white/10 text-white border-white/20 hover:bg-white/20 hover:transform hover:scale-105", // custom
+          "backdrop-blur-lg bg-red-900/20 text-red-100 border-red-700/30 hover:bg-red-800/30 hover:transform hover:scale-105",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        xl: "h-12 px-6 text-base rounded-xl", // custom
+        xl: "h-12 px-6 text-base rounded-xl",
         icon: "size-9",
       },
     },

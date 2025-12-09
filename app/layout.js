@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+
 import Header from "@/components/header";
 import { ConvexClientProvider } from "@/components/convex-client-provider";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -21,7 +22,15 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/logo-text.png" sizes="any" />
       </head>
-      <body className={`${inter.className}`}>
+
+      <body
+        className={`
+          ${inter.className}
+          antialiased
+          selection:bg-primary/30
+          selection:text-primary-foreground
+        `}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -31,15 +40,15 @@ export default function RootLayout({ children }) {
           <ClerkProvider
             publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
             appearance={{
-              baseTheme: shadesOfPurple,
+              baseTheme: shadesOfPurple, /* untouched */
             }}
           >
             <ConvexClientProvider>
               <Header />
-              <main className="bg-slate-900 min-h-screen text-white overflow-x-hidden">
+
+              <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
                 <FloatingShapes />
                 <Toaster richColors />
-
                 {children}
               </main>
             </ConvexClientProvider>

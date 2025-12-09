@@ -25,10 +25,13 @@ export function UpgradeModal({ isOpen, onClose, restrictedTool, reason }) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-4xl bg-slate-800 border-white/10 max-h-[90vh] overflow-y-auto">
+      <DialogContent
+        className="sm:max-w-4xl bg-gradient-to-br from-red-950 via-red-900 to-red-800
+        border border-red-500/30 max-h-[90vh] overflow-y-auto backdrop-blur-xl"
+      >
         <DialogHeader>
           <div className="flex items-center gap-3">
-            <Crown className="h-6 w-6 text-yellow-500" />
+            <Crown className="h-6 w-6 text-red-400" />
             <DialogTitle className="text-2xl font-bold text-white">
               Upgrade to Pro
             </DialogTitle>
@@ -38,26 +41,33 @@ export function UpgradeModal({ isOpen, onClose, restrictedTool, reason }) {
         <div className="space-y-6">
           {/* Restriction Message */}
           {restrictedTool && (
-            <Alert className="bg-amber-500/10 border-amber-500/20">
-              <Zap className="h-5 w-5 text-amber-400" />
-              <AlertDescription className="text-amber-300/80">
-                <div className="font-semibold text-amber-400 mb-1">
-                  {getToolName(restrictedTool)} - Pro Feature
+            <Alert className="bg-red-500/10 border border-red-400/30">
+              <Zap className="h-5 w-5 text-red-400" />
+              <AlertDescription className="text-red-100/80">
+                <div className="font-semibold text-red-400 mb-1">
+                  {getToolName(restrictedTool)} – Pro Feature
                 </div>
                 {reason ||
-                  `${getToolName(restrictedTool)} is only available on the Pro plan. Upgrade now to unlock this powerful feature and more.`}
+                  `${getToolName(
+                    restrictedTool
+                  )} is only available on the Pro plan. Upgrade now to unlock this powerful feature and more.`}
               </AlertDescription>
             </Alert>
           )}
 
-          <PricingTable />
+          {/* Clerk Pricing */}
+          <div className="[&_.cl-card]:bg-white/5 [&_.cl-card]:border-red-500/20
+                          [&_.cl-cardTitle]:text-white
+                          [&_.cl-cardPrice]:text-red-400">
+            <PricingTable />
+          </div>
         </div>
 
         <DialogFooter className="justify-center">
           <Button
             variant="ghost"
             onClick={onClose}
-            className="text-white/70 hover:text-white"
+            className="text-red-100/60 hover:text-white hover:bg-red-500/10"
           >
             Maybe Later
           </Button>

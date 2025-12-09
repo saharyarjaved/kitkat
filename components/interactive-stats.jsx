@@ -17,7 +17,7 @@ const AnimatedCounter = ({ target, suffix = "", duration = 2000 }) => {
   return (
     <span
       ref={ref}
-      className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+      className="bg-gradient-to-r from-red-500 via-rose-500 to-red-700 bg-clip-text text-transparent"
     >
       {count.toLocaleString()}
       {suffix}
@@ -34,19 +34,19 @@ const InteractiveStats = () => {
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-20 relative">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-4xl lg:text-5xl font-bold mb-2">
-                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                <AnimatedCounter
+                  target={stat.value}
+                  suffix={stat.suffix}
+                />
               </div>
-              {/* <div className="text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                {stat.value.toLocaleString()}
-                {stat.suffix}
-              </div> */}
-              <div className="text-gray-400 uppercase tracking-wider text-sm">
+
+              <div className="text-red-100/70 uppercase tracking-wider text-sm">
                 {stat.label}
               </div>
             </div>
